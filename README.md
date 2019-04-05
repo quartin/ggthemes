@@ -1,27 +1,28 @@
-[![Travis Build](https://travis-ci.org/jrnold/ggthemes.svg?branch=master)](https://travis-ci.org/jrnold/ggthemes)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/jrnold/ggthemes?branch=master&svg=true)](https://ci.appveyor.com/project/jrnold/ggthemes)
-[![Code Coverage Status](https://codecov.io/gh/jrnold/ggthemes/branch/master/graph/badge.svg)](https://codecov.io/github/jrnold/ggthemes?branch=master)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/ggthemes)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/ggthemes)](http://cran.rstudio.com/web/packages/ggthemes)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+# Talkdesk ggthemes
+**This is a fork of [ggthemes](https://github.com/jrnold/ggthemes) package with the Talkdesk palette. In the future,
+the idea is to add a full Talkdesk theme.**
 
+## About ggthemes
 
-Some extra geoms, scales, and themes for
-[ggplot](http://ggplot2.org).
+Some extra geoms, scales, and themes for [ggplot](http://ggplot2.org/).
 
+See original repo for general instructions about the package.
 
 ## Install 
 
-To install the stable version from CRAN,
-
 ```r
-install.packages('ggthemes', dependencies = TRUE)
+devtools::install_github("quartin/ggthemes")
 ```
 
-Or, to install the development version from github, use the
-**devtools** package,
+## Talkdesk palette usage
 
 ```r
-library("devtools")
-install_github(c("hadley/ggplot2", "jrnold/ggthemes"))
+library("ggplot2")
+library("ggthemes")
+
+ggplot(mtcars) +
+  geom_point(aes(x = wt, y = mpg, colour = factor(cyl))) +
+  scale_colour_talkdesk()
 ```
+
+![](figure/talkdesk-1.png)
